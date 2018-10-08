@@ -16,7 +16,7 @@ Each variant is annotated with the following pieces of information:
 
 ## Requirements
 
-This module requires the following modules/libraries (Python 2.7.12):
+This program requires the following modules/libraries (Python 2.7.12):
 
 * numpy
 * pandas
