@@ -2,8 +2,8 @@
 # coding: utf-8
 
 '''
-VCF parse code
-==============
+VCF parse 
+==========
 
 #  Introduction
 
@@ -19,7 +19,6 @@ Output a table annotating each variant in the VCF input file. Each variant must 
 # Author contact
 
 Sara Movahedi , https://github.com/tabotaab 
-Email: sara.movahedi@gmail.com
 '''
 
 # ## modules/libraries

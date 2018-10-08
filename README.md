@@ -36,4 +36,4 @@ python vcf-parse-challenge.py
 
 ## Author contact
 
-* [Sara Movahedi](https://github.com/tabotaab) (contact: <sara.movahedi@gmail.com>)
+* [Sara Movahedi](https://github.com/tabotaab) 
