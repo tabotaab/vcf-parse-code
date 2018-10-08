@@ -1,23 +1,26 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # VCF parse code
-# 
-# ## Introduction
-# 
-# Output a table annotating each variant in the VCF input file. Each variant must be annotated with the following pieces of information:
-# 
-# 1. Type of variation (Substitution, Insertion, Silent, Intergenic, etc.) If there are multiple possibilities, annotate with the most deleterious possibility.
-# 2. Depth of sequence coverage at the site of variation.
-# 3. Number of reads supporting the variant.
-# 4. Percentage of reads supporting the variant versus those supporting reference reads.
-# 5. Allele frequency of variant from Broad Institute ExAC Project API (API documentation is available here: http://exac.hms.harvard.edu/)
-# 6. Additional optional information from ExAC that you feel might be relevant.
-# 
-# ## Author and Development
-# 
-# * [Sara Movahedi](https://github.com/tabotaab) (contact: <sara.movahedi@gmail.com>)
-# 
+'''
+VCF parse code
+==============
+
+#  Introduction
+
+Output a table annotating each variant in the VCF input file. Each variant must be annotated with the following pieces of information:
+ 
+1. Type of variation (Substitution, Insertion, Silent, Intergenic, etc.) If there are multiple possibilities, annotate with the most deleterious possibility.
+2. Depth of sequence coverage at the site of variation.
+3. Number of reads supporting the variant.
+4. Percentage of reads supporting the variant versus those supporting reference reads.
+5. Allele frequency of variant from Broad Institute ExAC Project API (API documentation is available here: http://exac.hms.harvard.edu/)
+6. Additional optional information from ExAC that you feel might be relevant.
+ 
+# Author contact
+
+Sara Movahedi , https://github.com/tabotaab 
+Email: sara.movahedi@gmail.com
+'''
 
 # ## modules/libraries
 # This module requires the following modules/libraries (Python 2.7.12):
@@ -30,8 +33,6 @@
 # * [pyVEP](https://github.com/kantale/pyVEP)
 # 
 
-# In[3]:
-
 
 import vcf
 import numpy as np
@@ -43,14 +44,11 @@ import json
 
 # ## Default variables
 
-# In[5]:
 
 
 input_file = './Challenge_data.vcf'
 output_file = './vcf-parse-output.csv'
 
-
-# In[6]:
 
 
 info_type = {'del': "deletion",
@@ -88,7 +86,6 @@ variation_subtype = {'del': "deletion",
 # * DP combined depth across samples
 # * Percentage of reads supporting the variant versus those supporting reference reads
 
-# In[7]:
 
 
 def parse_vcf_record(record):
@@ -122,7 +119,6 @@ def parse_vcf_record(record):
 # * comma separated list of 'most severe consequence' of alternate non-reference alleles
 # 
 
-# In[8]:
 
 
 def variant_effect(record): 
@@ -157,8 +153,6 @@ def variant_effect(record):
 # * filter 
 # * major_consequence
 # 
-
-# In[9]:
 
 
 def ExAC_info(record):
@@ -195,8 +189,6 @@ def ExAC_info(record):
 # ## main function
 # Here we read and parse the VCF input file line by line. Output results are written to a csv file. 
 
-# In[10]:
-
 
 def main(vcf_file = input_file,out_file = output_file ):
     
@@ -227,8 +219,6 @@ def main(vcf_file = input_file,out_file = output_file ):
     
     return()
 
-
-# In[ ]:
 
 
 if __name__== "__main__":
