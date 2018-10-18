@@ -193,11 +193,12 @@ def main(vcf_file = input_file,out_file = output_file ):
     
     vcf_reader = vcf.Reader(open(vcf_file,'r'))
 
+	outheader=('chromosome','position','reference','variant','var_type','var_infotype','var_subtype','var_count',
+	'read_depth','var%|ref%','var_effect','ExAC_allele_count','ExAC_allele_num','ExAC_allele_freq','ExAC_homozygotes_num',
+	'ExAC_site_quality','ExAC_filter','ExAC_HGVSc:major_consequence')
+	
     f = open(out_file,"w+")
-    f.write('chromosome'+'\t'+'position'+'\t'+'reference'+'\t'+'variant'+'\t'+'var_type'+'\t'+'var_infotype'+'\t'+
-            'var_subtype'+'\t'+'var_count'+'\t'+'read_depth'+'\t'+'var%|ref%'+'\t'+'var_effect'+'\t'+
-            'ExAC_allele_count'+'\t'+'ExAC_allele_num'+'\t'+'ExAC_allele_freq'+'\t'+'ExAC_homozygotes_num'+'\t'+
-            'ExAC_site_quality'+'\t'+'ExAC_filter'+'\t'+'ExAC_HGVSc:major_consequence'+'\n')
+    f.write(('\t').join(outheader)+'\n')
     
     for record in vcf_reader:
         try:
